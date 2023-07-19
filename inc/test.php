@@ -21,7 +21,7 @@ $access_file = str_replace(':', '', 'test.PLEASE_REMOVE_ME.access_from_' . get_c
  * @param   string   $regex      regex
  * @param   array    $match      matchers
  * @param   array    $types      typers
- * @param   array    $logs       logs
+ * @param   string   $logs       logs
  * @param   boolean  $headers    display header
  * @param   string   $multiline  multiline field
  *
@@ -36,7 +36,7 @@ function test( $type , $regex , $match , $types , $logs , $headers = true , $mul
 
 	$logs   = array_reverse( explode( "\n" , $logs ) );
 	$rank   = 0;
-	$size   = count( strval( count($logs) ) ) + 2;
+	$size   = count($logs) + 2;
 	$blan   = str_pad( '' , $size );
 	$buffer = array();
 
