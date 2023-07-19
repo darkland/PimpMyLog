@@ -375,6 +375,19 @@ class Sentinel
 	}
 
 	/**
+	 * 判斷這個 Log 讀取權限的登入需求.
+	 * @param string $loginRequirement
+	 * @return boolean
+	 */
+	public static function isLogReadableByAnyLoginRequirement($loginRequirement = "default")
+	{
+		if ($loginRequirement === "login_only") {
+			return self::getCurrentUsername() !== null;
+		}
+		return false;
+	}
+
+	/**
 	 * Tell whether a signature is valid for given values or not
 	 *
 	 * @param   string   $given_sign  the provided signature

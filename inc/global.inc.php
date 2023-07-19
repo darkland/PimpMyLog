@@ -611,7 +611,7 @@ function config_load( $load_user_configuration_dir = true )
 				{
 					$a = $files[ $fileid ][ 'oid' ];
 				}
-				if ( ( Sentinel::userCanOnLogs( $a , 'r' , true , $username ) ) || ( Sentinel::isLogAnonymous( $a ) ) )
+				if ( ( Sentinel::userCanOnLogs( $a , 'r' , true , $username ) ) || ( Sentinel::isLogAnonymous( $a ) ) || ( Sentinel::isLogReadableByAnyLoginRequirement($files[ $fileid ]['login']) ) )
 				{
 					$final[ $fileid ] = $file;
 				}
